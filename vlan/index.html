@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VLAN平台下载-企业级网络虚拟化与VLAN管理工具</title>
+    <meta name="description" content="VLAN平台下载中心提供稳定、高效的企业级VLAN管理软件，支持多厂商设备接入、自动化VLAN规划与实时监控，助力IT运维人员提升网络管理效率。">
+    <meta name="keywords" content="VLAN平台下载, VLAN管理软件, 网络虚拟化, 企业网络管理, VLAN配置工具">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --secondary-color: #1e293b;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+            --success-color: #10b981;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .badge-new {
+            background-color: #dbeafe;
+            color: var(--primary-color);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .hero-image {
+            background-color: #e2e8f0;
+            border-radius: 12px;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #eff6ff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Download Section */
+        .download-section {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 4rem 0;
+        }
+
+        .download-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .download-info h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .download-info p {
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .version-list {
+            margin-bottom: 2rem;
+        }
+
+        .version-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 6px;
+            margin-bottom: 0.5rem;
+        }
+
+        .version-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .version-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .version-meta {
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        .download-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .download-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .download-btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* System Requirements */
+        .requirements {
+            padding: 4rem 0;
+            background-color: white;
+        }
+
+        .req-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .req-item {
+            border-left: 3px solid var(--border-color);
+            padding-left: 1rem;
+        }
+
+        .req-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .req-value {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 4rem 0;
+            background-color: var(--bg-color);
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .faq-question:hover {
+            background-color: #f8fafc;
+        }
+
+        .faq-answer {
+            padding: 0 1.2rem 1.2rem;
+            color: var(--text-secondary);
+            display: none;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-item.active .faq-question::before {
+            content: '+';
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #94a3b8;
+            padding: 3rem 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                height: auto;
+                flex-direction: column;
+                padding: 1rem 0;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                display: none; /* Simplified for mobile */
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .download-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary-color)">
+                    <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                    <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                    <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                    <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                </svg>
+                VLAN<span>Master</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#features" class="active">功能特性</a>
+                <a href="#download">下载中心</a>
+                <a href="#requirements">系统要求</a>
+                <a href="#faq">常见问题</a>
+            </nav>
+            <div class="header-actions">
+                <a href="#download" class="btn btn-primary">立即下载</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>企业级 VLAN 平台下载，构建高效网络拓扑</h1>
+                    <p>VLANMaster 是一款专业的网络虚拟化管理工具，支持跨厂商设备统一管理、自动化 VLAN 划分与安全策略下发，为中小企业及大型数据中心提供一站式解决方案。</p>
+                    <div class="hero-buttons">
+                        <a href="#download" class="btn btn-primary">免费下载客户端</a>
+                        <a href="#features" class="btn btn-outline">了解更多</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://picsum.photos/seed/network/600/400.jpg" alt="VLAN平台管理界面演示">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>核心功能亮点</h2>
+                    <p>满足复杂网络环境下的 VLAN 管理需求</p>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <h3>多厂商设备兼容</h3>
+                        <p>无缝支持 Cisco、Huawei、H3C 等主流网络设备，统一命令行接口，降低运维学习成本。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                        </div>
+                        <h3>自动化拓扑生成</h3>
+                        <p>通过 SNMP 协议自动发现网络设备，实时绘制网络拓扑图，可视化呈现 VLAN 分配状态。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        </div>
+                        <h3>安全访问控制</h3>
+                        <p>基于 VLAN 的安全隔离策略，支持端口安全、访问控制列表（ACL）的批量部署与审计。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        </div>
+                        <h3>配置备份与恢复</h3>
+                        <p>一键备份全网设备配置文件，支持配置差异对比与历史版本回滚，防止配置失误。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <h3>实时监控告警</h3>
+                        <p>7x24小时监控 VLAN 接口流量与状态，异常情况自动触发邮件或短信告警。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+                        </div>
+                        <h3>Web 管理界面</h3>
+                        <p>无需安装客户端，通过浏览器即可登录管理平台，支持多用户权限分级管理。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section id="download" class="download-section">
+            <div class="container download-container">
+                <div class="download-info">
+                    <h2>安全稳定的 VLAN 平台下载</h2>
+                    <p>我们提供针对不同操作系统环境的客户端安装包。所有下载均经过病毒扫描，确保您的网络安全。</p>
+                    
+                    <div class="version-list">
+                        <div class="version-item">
+                            <div class="version-info">
+                                <span class="version-name">VLANMaster Pro 2.4.0</span>
+                                <span class="version-meta">Windows 10/11 | 64-bit | 2023-10-15 发布</span>
+                            </div>
+                            <div class="download-actions">
+                                <a href="#" class="download-btn">下载 v2.4.0</a>
+                            </div>
+                        </div>
+                        <div class="version-item">
+                            <div class="version-info">
+                                <span class="version-name">VLANMaster Pro 2.3.5</span>
+                                <span class="version-meta">Windows 10/11 | 64-bit | 2023-08-20 发布</span>
+                            </div>
+                            <div class="download-actions">
+                                <a href="#" class="download-btn">下载 v2.3.5</a>
+                            </div>
+                        </div>
+                        <div class="version-item">
+                            <div class="version-info">
+                                <span class="version-name">VLANMaster Server 2.4.0</span>
+                                <span class="version-meta">Linux CentOS 7+ | 64-bit | 2023-10-15 发布</span>
+                            </div>
+                            <div class="download-actions">
+                                <a href="#" class="download-btn">下载服务端</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="download-visual">
+                    <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 12px; text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🛡️</div>
+                        <h3 style="color: white; margin-bottom: 1rem;">数字签名验证</h3>
+                        <p style="color: #cbd5e1; font-size: 0.9rem;">所有安装包均经过 VeriSign 数字签名，防止篡改，保障企业级数据安全。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- System Requirements -->
+        <section id="requirements" class="requirements">
+            <div class="container">
+                <div class="section-header">
+                    <h2>系统运行要求</h2>
+                    <p>确保您的设备满足以下配置以获得最佳性能</p>
+                </div>
+                <div class="req-grid">
+                    <div class="req-item">
+                        <span class="req-label">操作系统</span>
+                        <span class="req-value">Windows 10 / 11 (64-bit), Linux (CentOS 7+), macOS 10.14+</span>
+                    </div>
+                    <div class="req-item">
+                        <span class="req-label">内存 (RAM)</span>
+                        <span class="req-value">最低 4GB，推荐 8GB 以上</span>
+                    </div>
+                    <div class="req-item">
+                        <span class="req-label">处理器 (CPU)</span>
+                        <span class="req-value">Intel i3 或同等性能处理器</span>
+                    </div>
+                    <div class="req-item">
+                        <span class="req-label">网络环境</span>
+                        <span class="req-value">支持 TCP/IP 协议，需连接互联网（首次激活）</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2>常见问题解答</h2>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item active">
+                        <div class="faq-question">VLAN平台下载后如何进行初始配置？</div>
+                        <div class="faq-answer">
+                            安装完成后，打开客户端点击“新建连接”，输入服务器 IP 地址、管理用户名和密码即可连接。首次连接建议先进行设备扫描以发现网络中的交换机。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">支持哪些品牌的网络设备？</div>
+                        <div class="faq-answer">
+                            目前支持 Cisco (IOS, IOS-XE, NX-OS), Huawei (VRP), H3C, Huawei CloudEngine 等主流厂商设备。部分私有协议可能需要额外的协议转换包。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">个人用户是否可以免费使用此平台？</div>
+                        <div class="faq-answer">
+                            VLANMaster 提供社区版免费下载，支持基础的设备管理和配置备份功能。如需使用自动化策略下发和高级监控报表，请购买专业版授权。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">下载的安装包安全吗？</div>
+                        <div class="faq-answer">
+                            是的，我们所有发布的安装包都经过第三方安全机构扫描，并使用官方数字证书签名，您可以放心下载使用。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>VLANMaster</h4>
+                    <p style="font-size: 0.85rem; line-height: 1.6;">
+                        专注于企业网络虚拟化与自动化管理领域，致力于为网络工程师提供简单、高效、安全的 VLAN 管理工具。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>产品支持</h4>
+                    <ul>
+                        <li><a href="#">下载中心</a></li>
+                        <li><a href="#">用户手册</a></li>
+                        <li><a href="#">API 文档</a></li>
+                        <li><a href="#">版本更新日志</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">故障排查</a></li>
+                        <li><a href="#">联系我们</a></li>
+                        <li><a href="#">服务条款</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>support@vlanmaster.com</li>
+                        <li>400-123-4567</li>
+                        <li>北京市海淀区科技园路 88 号</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 VLANMaster Technology Co., Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+                      </html>
