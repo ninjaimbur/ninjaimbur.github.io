@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>战机游戏-硬核飞行模拟与动作射击体验</title>
+    <meta name="description" content="提供最全的战机游戏推荐，涵盖经典街机射击、现代空战模拟及次世代VR飞行游戏。包含游戏攻略、机型图鉴、画质评测及下载指南。">
+    <meta name="keywords" content="战机游戏,空战游戏,飞行模拟,射击游戏,街机游戏,VR游戏,游戏攻略">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #00f0ff;
+            --secondary-color: #7000ff;
+            --accent-color: #ff0055;
+            --bg-dark: #0a0e17;
+            --bg-card: #151b2b;
+            --text-main: #ffffff;
+            --text-muted: #8b9bb4;
+            --border-color: #2a3b55;
+            --font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 14, 23, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.8rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background: radial-gradient(circle at center, #1a253a 0%, var(--bg-dark) 70%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.05"><path d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/></g></g></svg>');
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 12px 35px;
+            background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0, 240, 255, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 240, 255, 0.5);
+        }
+
+        /* Categories Grid */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .category-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .category-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .category-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .category-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .category-card .link-arrow {
+            margin-top: 15px;
+            display: inline-block;
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Featured Games */
+        .featured-section {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #0f1623 100%);
+        }
+
+        .game-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .game-item {
+            display: flex;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+        .game-item:hover {
+            border-color: var(--secondary-color);
+        }
+
+        .game-thumb {
+            width: 200px;
+            flex-shrink: 0;
+            background: #000;
+            position: relative;
+        }
+        
+        .game-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .game-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .game-tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: rgba(112, 0, 255, 0.2);
+            color: #b38dff;
+            border: 1px solid rgba(112, 0, 255, 0.3);
+        }
+
+        .tag.sim {
+            background: rgba(0, 240, 255, 0.15);
+            color: #7df0ff;
+            border-color: rgba(0, 240, 255, 0.3);
+        }
+
+        .game-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .game-info p {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .game-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: auto;
+        }
+
+        .game-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Specs Guide */
+        .specs-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .specs-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .spec-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 15px 20px;
+            border-radius: 6px;
+            border-left: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .spec-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-left-color: var(--accent-color);
+        }
+
+        .spec-item h4 {
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+
+        .spec-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .specs-visual {
+            background: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M10 50 Q 25 25, 50 50 T 90 50" stroke="%232a3b55" fill="none" stroke-width="2"/></svg>') no-repeat center;
+            background-size: contain;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed var(--border-color);
+            border-radius: 8px;
+            color: var(--text-muted);
+        }
+
+        /* FAQ */
+        .faq-section {
+            background: var(--bg-card);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .faq-item details {
+            padding: 20px 0;
+            cursor: pointer;
+        }
+
+        .faq-item summary {
+            font-size: 1.1rem;
+            font-weight: 600;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .faq-item details[open] summary::after {
+            content: '-';
+        }
+
+        .faq-item p {
+            margin-top: 15px;
+            color: var(--text-muted);
+            padding-left: 10px;
+            border-left: 2px solid var(--border-color);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 50px 0 20px;
+            background: #080b12;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-wrapper {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.85rem;
+            }
+
+            .game-item {
+                flex-direction: column;
+            }
+
+            .game-thumb {
+                width: 100%;
+                height: 180px;
+            }
+
+            .specs-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-wrapper">
+        <div class="logo">SkyWarfare <span style="font-size:0.5em; color:var(--text-muted); vertical-align:middle;">GAMES</span></div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">游戏库</a></li>
+                <li><a href="#">模拟器</a></li>
+                <li><a href="#">硬件评测</a></li>
+                <li><a href="#">社区论坛</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>重返蓝天<br>体验极致战机游戏</h1>
+            <p>从经典街机射击到高拟真空战模拟，探索最令人血脉偾张的空中战斗体验。无论是单人剧情还是多人联网，这里都有属于你的王牌战机。</p>
+            <a href="#" class="cta-btn">浏览推荐游戏</a>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">游戏类型导航</h2>
+            <div class="category-grid">
+                <article class="category-card">
+                    <div class="category-icon">✈️</div>
+                    <h3>硬核模拟飞行</h3>
+                    <p>追求真实物理引擎与复杂操作系统，还原驾驶喷气式战机与螺旋桨飞机的极致体验。</p>
+                    <a href="#" class="link-arrow">查看详情 &rarr;</a>
+                </article>
+                <article class="category-card">
+                    <div class="category-icon">🕹️</div>
+                    <h3>经典街机射击</h3>
+                    <p>快节奏的垂直卷轴射击游戏，拥有华丽特效与复古音效，唤醒你的童年记忆。</p>
+                    <a href="#" class="link-arrow">查看详情 &rarr;</a>
+                </article>
+                <article class="category-card">
+                    <div class="category-icon">🎮</div>
+                    <h3>现代空战射击</h3>
+                    <p>结合现代军事科技与战术，体验超视距打击与先进武器系统的实战操作。</p>
+                    <a href="#" class="link-arrow">查看详情 &rarr;</a>
+                </article>
+                <article class="category-card">
+                    <div class="category-icon">🥽</div>
+                    <h3>VR飞行体验</h3>
+                    <p>利用虚拟现实技术，身临其境地感受战机起飞、盘旋与空战的震撼视觉冲击。</p>
+                    <a href="#" class="link-arrow">查看详情 &rarr;</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Games Section -->
+    <section class="section featured-section">
+        <div class="container">
+            <h2 class="section-title">热门推荐</h2>
+            <div class="game-list">
+                <article class="game-item">
+                    <div class="game-thumb">
+                        <img src="https://picsum.photos/seed/fighter1/400/300" alt="游戏封面">
+                    </div>
+                    <div class="game-info">
+                        <div class="game-tags">
+                            <span class="tag sim">模拟飞行</span>
+                            <span class="tag">单人剧情</span>
+                            <span class="tag">高画质</span>
+                        </div>
+                        <h3>星际领航者：雷霆行动</h3>
+                        <p>一款次世代太空战机模拟游戏，玩家将驾驶最先进的隐形战机，在近地轨道执行绝密任务。游戏拥有物理真实的弹道计算与动态天气系统。</p>
+                        <div class="game-meta">
+                            <span>📅 2023年10月发布</span>
+                            <span>💻 PC / PS5 / Xbox</span>
+                            <span>⭐ 评分 9.2</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="game-item">
+                    <div class="game-thumb">
+                        <img src="https://picsum.photos/seed/fighter2/400/300" alt="游戏封面">
+                    </div>
+                    <div class="game-info">
+                        <div class="game-tags">
+                            <span class="tag">街机射击</span>
+                            <span class="tag">多人对战</span>
+                        </div>
+                        <h3>雷霆战机：觉醒</h3>
+                        <p>经典IP的现代化重制版。保留垂直卷轴射击的精髓，加入了全3D建模的华丽特效与联网PVP模式，支持触控与手柄操作。</p>
+                        <div class="game-meta">
+                            <span>📅 2024年1月发布</span>
+                            <span>📱 iOS / Android</span>
+                            <span>⭐ 评分 8.5</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="game-item">
+                    <div class="game-thumb">
+                        <img src="https://picsum.photos/seed/fighter3/400/300" alt="游戏封面">
+                    </div>
+                    <div class="game-info">
+                        <div class="game-tags">
+                            <span class="tag sim">硬核模拟</span>
+                            <span class="tag">开放世界</span>
+                        </div>
+                        <h3>蓝天猎手：零式</h3>
+                        <p>专注于二战背景的硬核模拟游戏，包含数百种真实历史机型。对操纵杆响应、引擎参数及仪表盘操作进行了极致还原。</p>
+                        <div class="game-meta">
+                            <span>📅 2023年12月发布</span>
+                            <span>💻 PC (VR支持)</span>
+                            <span>⭐ 评分 9.0</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specs & Hardware Guide -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">战机游戏硬件指南</h2>
+            <div class="specs-container">
+                <div class="specs-visual">
+                    <div style="text-align:center;">
+                        <p style="font-size:3rem; color:var(--primary-color);">⚙️</p>
+                        <p>配置推荐</p>
+                    </div>
+                </div>
+                <div class="specs-list">
+                    <div class="spec-item">
+                        <h4>处理器 (CPU)</h4>
+                        <p>推荐 Intel Core i7-12700K 或 AMD Ryzen 7 5800X。高帧率空战需要强大的多核处理能力来计算物理碰撞和粒子特效。</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4>显卡 (GPU)</h4>
+                        <p>NVIDIA GeForce RTX 3060 或 AMD Radeon RX 6600 XT 以上。建议开启光追效果以获得最佳视觉体验。</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4>显示器</h4>
+                        <p>144Hz 或更高刷新率的显示器。战机游戏的高机动性操作对刷新率要求极高，低刷新率会导致画面撕裂和操作延迟。</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4>操作设备</h4>
+                        <p>对于模拟类游戏，建议配备力反馈摇杆和油门踏板，以获得更真实的推力与机动反馈。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq-section">
+        <div class="container">
+            <h2 class="section-title">常见问题解答</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <details>
+                        <summary>新手如何快速上手硬核模拟类战机游戏？</summary>
+                        <p>建议从“简易操作模式”或“辅助飞行系统”开始。先熟悉键盘按键功能，再逐步尝试鼠标跟随瞄准。观看官方教学视频和社区的高手攻略是提升最快的方法。</p>
+                    </details>
+                </div>
+                <div class="faq-item">
+                    <details>
+                        <summary>哪些战机游戏支持VR设备？</summary>
+                        <p>目前支持VR的知名作品包括《IL-2 Sturmovik: Great Battles》和《Dirt Rally》（虽为赛车但物理引擎通用）。部分模拟器如“DCS World”也通过第三方模组支持VR。</p>
+                    </details>
+                </div>
+                <div class="faq-item">
+                    <details>
+                        <summary>PC模拟飞行游戏需要多大的硬盘空间？</summary>
+                        <p>由于包含大量的地形数据和高清贴图，单机版模拟飞行游戏通常需要50GB至100GB以上的可用空间，建议使用SSD固态硬盘以减少加载时间。</p>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom:15px;">SkyWarfare</div>
+                <p style="color:var(--text-muted); font-size:0.9rem;">
+                    专注于分享全球最优质的战机游戏资讯与硬件评测。致力于为航空爱好者与游戏玩家提供最专业的飞行体验指南。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">游戏库</a></li>
+                    <li><a href="#">硬件评测</a></li>
+                    <li><a href="#">新手教程</a></li>
+                    <li><a href="#">下载中心</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系我们</h4>
+                <ul>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">广告合作</a></li>
+                    <li><a href="#">投稿指南</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2024 SkyWarfare Games. All rights reserved. 本站内容仅供学习交流使用。
+        </div>
+    </div>
+</footer>
+
+</body>
+  </html>
